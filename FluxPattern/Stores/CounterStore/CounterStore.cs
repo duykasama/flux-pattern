@@ -1,4 +1,6 @@
-﻿namespace FluxPattern.Stores.CounterStore
+﻿using FluxPattern.Stores.Interfaces;
+
+namespace FluxPattern.Stores.CounterStore
 {
     public class CounterState
     {
@@ -12,11 +14,13 @@
     public class CounterStore
     {
         public CounterState _state;
-        private Action _listeners;
+        private IActionDispatcher actionDispatcher;
 
-        public CounterStore()
+        public CounterStore(IActionDispatcher actionDispatcher)
         {
             _state = new CounterState(0);
+            this.actionDispatcher = actionDispatcher;
+            this.actionDispatcher.Subscribe(HandleActions);
         }
 
         public CounterState GetState()
@@ -24,7 +28,24 @@
             return _state;
         }
 
-        #region flux pattern
+        private void HandleActions(IAction action)
+        {
+            switch (action)
+            {
+                case IncrementAction:
+                    IncreaseCount();
+                    break;
+                case DecrementAction:
+                    DecreaseCount();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        #region observer pattern
+        private Action _listeners;
 
         public void AddStateChangeListener(Action listner)
         {
@@ -36,17 +57,23 @@
             _listeners -= listner;
         }
 
-        private void BroadcastStateChnage()
+        private void BroadcastStateChange()
         {
             _listeners?.Invoke();
         }
 
         #endregion
 
-        public void IncreaseCount()
+        private void IncreaseCount()
         {
-            _state = new CounterState(_state.Count+1);
-            BroadcastStateChnage();
+            _state = new CounterState(_state.Count + 1);
+            BroadcastStateChange();
+        }
+
+        private void DecreaseCount()
+        {
+            _state = new CounterState(_state.Count - 1);
+            BroadcastStateChange();
         }
     }
 }

@@ -1,3 +1,4 @@
+using FluxPattern.Stores;
 using FluxPattern.Stores.CounterStore;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<CounterStore>();
+builder.Services.AddScoped<IActionDispatcher, ActionDispatcher>();
 
 var app = builder.Build();
 

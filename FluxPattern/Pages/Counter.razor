@@ -1,5 +1,7 @@
 ﻿@page "/counter"
+@using FluxPattern.Stores;
 @inject CounterStore counterStore
+@inject IActionDispatcher actionDispatcher
 
 <PageTitle>Counter</PageTitle>
 
@@ -7,7 +9,8 @@
 
 <p role="status">Current count: @counterStore.GetState().Count</p>
 
-<button class="btn btn-primary" @onclick="() => counterStore.IncreaseCount()">Click me</button>
+<button class="btn btn-primary" @onclick="() => actionDispatcher.Dispatch(new IncrementAction())">Increase count</button>
+<button class="btn btn-primary" @onclick="() => actionDispatcher.Dispatch(new DecrementAction())">Decrease count</button>
 
 @code {
 
