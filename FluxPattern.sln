@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluxPattern", "FluxPattern\FluxPattern.csproj", "{564EC672-2566-4DA7-BBED-92A99ABD75EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{564EC672-2566-4DA7-BBED-92A99ABD75EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{564EC672-2566-4DA7-BBED-92A99ABD75EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{564EC672-2566-4DA7-BBED-92A99ABD75EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{564EC672-2566-4DA7-BBED-92A99ABD75EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCC4D68D-F0E6-4216-A0C8-CB5C54895697}
+	EndGlobalSection
+EndGlobal
